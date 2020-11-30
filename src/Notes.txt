@@ -144,7 +144,8 @@ public class SuperParameterizedConstructor extends ParameterizedConstructor {
 Output: Inside SuperParemeterizedConstructor class
         Addition of x and y is: 30
         
-In the above example you have seen how 
+In the above example you have seen how we can use super to invoke 
+a parameterized constructor of parent class and pass arguments inside it.
         
         
 
