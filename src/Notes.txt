@@ -1,0 +1,167 @@
+The super keyword in java is a reference variable which is used to refer superclass(base) objects.
+The super keyword came into existence with the concept of Inheritance, 
+suppose you have same name of variables or methods in both parent or child class, 
+and if you want to access the variable as well as method of parent so you can access by using super keyword.
+It is used to remove ambiguity.
+
+See the example below which demonstrate the above statement:
+ 
+ //Java program to demonstrate super keyword
+// using super to access parent class variable
+
+class Dog {
+	String breed = "Rottweiler"; // String in parent class
+}
+
+public class Puppy extends Dog {
+	String breed = "Pitbull"; // String in child class
+
+	void display() {
+		System.out.println("String in Dog class " + super.breed);
+		// access breed variable of parent class using super.breed
+	}
+
+	public static void main(String[] args) {
+		Puppy p = new Puppy();
+		System.out.println("String in Puppy class " + p.breed);
+		// access breed variable of Child class using object
+		p.display();
+
+	}
+
+}
+ 
+ Ouput: String in Puppy class Pitbull
+        String in Dog class Rottweiler
+        
+In the above example, Dog and Puppy both classes have a common property
+breed. If we print breed variable, it will print the breed variable of current class by default.
+To access the instance variable of parent class, we must use super.
+
+The super keyword can also be used to invoke parent class method. It should be used 
+if subclass contains the same method as parent class. In other words, it is used if method is overridden.
+        
+ //Java program to demonstrate super keyword
+// access parent class method using super
+
+class Demo {
+	void display() {
+		System.out.println("Method in Parent Class (Demo)");
+	}
+}
+
+public class SuperDemo extends Demo {
+
+	void display() {
+		super.display(); // calling method in parent class
+						 // using super.display()
+		System.out.println("Method in Child Class (SuperDemo) ");
+	}
+
+	public static void main(String[] args) {
+		SuperDemo d = new SuperDemo();
+		d.display();
+
+	}
+
+}
+
+Output: Method in Parent Class (Demo)
+        Method in Child Class (SuperDemo) 
+
+In the above example, Demo and SuperDemo both classes have a common method(display).
+If we invoke display method it will invoke the method resides inside the current class.
+To invoke the parent class method you must you super following the method name.
+
+Super keyword is also used to invoke the constructor of Parent class.Super can
+invoke both non parameterized as well as parameterized constructor.
+
+Note: Super must be the first statement.
+
+
+// Java program to demonstrate the use of super
+// to invoke the default parent class constructor
+
+class Parent {
+
+	public Parent() {
+		System.out.println("Constructor of Parent class");
+	}
+
+}
+
+public class SuperConstructorDemo extends Parent {
+
+	public SuperConstructorDemo() {
+		super(); // if we don't write compiler will
+				// implicitly adds super inside the constructor
+		System.out.println("Constructor of Child class");
+
+	}
+
+	public static void main(String[] args) {
+		SuperConstructorDemo sc = new SuperConstructorDemo();
+	}
+
+}
+Output: Constructor of Parent class
+        Constructor of Child class
+        
+In the above example we have called the parent class default constructor using super.
+In the next example we will see how to use super to invoke parameterized constructor of 
+Parent class.
+
+
+class ParameterizedConstructor {
+
+	int x, y;
+
+	public ParameterizedConstructor(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	void add() {
+		System.out.println("Addition of x and y is: " + (x + y));
+	}
+
+}
+
+public class SuperParameterizedConstructor extends ParameterizedConstructor {
+
+	public SuperParameterizedConstructor() {
+		super(10, 20);
+		System.out.println("Inside SuperParemeterizedConstructor class");
+	}
+
+	public static void main(String[] args) {
+		SuperParameterizedConstructor sp = new SuperParameterizedConstructor();
+		sp.add();
+
+	}
+
+}
+Output: Inside SuperParemeterizedConstructor class
+        Addition of x and y is: 30
+        
+In the above example you have seen how 
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
